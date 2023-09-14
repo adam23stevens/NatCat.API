@@ -21,7 +21,7 @@ namespace NatCat.Model.DataGroup
 
         public int StartIndex { get; set; }
         public int PageNumber { get; set; }
-        public Expression<Func<TEntity, bool>>? wc;
+        public required Expression<Func<TEntity, bool>> wc;
     }
 }
 
