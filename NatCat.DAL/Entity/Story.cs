@@ -27,15 +27,15 @@ namespace NatCat.DAL.Entity
         public int MaxStoryParts => StoryUsers.Count() * TotalStoryRounds;
 
         [ForeignKey(nameof(GenreId))]
-        public Guid? GenreId { get; set; }
+        public Guid GenreId { get; set; }
         public virtual Genre? Genre { get; set; }
 
         [ForeignKey(nameof(StoryTypeId))]
-        public Guid? StoryTypeId { get; set; }
+        public Guid StoryTypeId { get; set; }
         public virtual StoryType? StoryType { get; set; }
 
         [ForeignKey(nameof(BookClubId))]
-        public Guid? BookClubId { get; set; }
+        public Guid BookClubId { get; set; }
         public virtual BookClub? BookClub { get; set; }
 
         [ForeignKey(nameof(AuthorApplicationUserId))]

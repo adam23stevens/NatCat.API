@@ -22,7 +22,7 @@ namespace NatCat.DAL.Entity
         public string? InvisibleTextFromPrevious { get; set; }
 
         [ForeignKey(nameof(StoryId))]
-        public Guid? StoryId { get; set; }
+        public Guid StoryId { get; set; }
         public virtual Story? Story { get; set; }
 
         [ForeignKey(nameof(ApplicationUserId))]
