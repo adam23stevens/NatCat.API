@@ -13,6 +13,8 @@ namespace NatCat.Application.Mapping
                    .ForMember(x => x.ApplicationUserProfileNames, x => x.MapFrom(y => y.ApplicationUsers.Select(x => x.ProfileName)));
             CreateMap<BookClub, BookClubListDto>();
             CreateMap<AddBookClub, BookClub>();
+            CreateMap<BookClubJoinRequest, BookClubJoinRequestDetailDto>();
+            CreateMap<BookClubJoinRequest, BookClubJoinRequestListDto>();
         }
     }
 }

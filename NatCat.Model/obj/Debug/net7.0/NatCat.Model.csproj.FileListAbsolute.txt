@@ -1,0 +1,12 @@
+/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Model/bin/Debug/net7.0/NatCat.Model.deps.json
+/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Model/bin/Debug/net7.0/NatCat.Model.dll
+/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Model/bin/Debug/net7.0/NatCat.Model.pdb
+/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Model/obj/Debug/net7.0/NatCat.Model.csproj.AssemblyReference.cache
+/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Model/obj/Debug/net7.0/NatCat.Model.GeneratedMSBuildEditorConfig.editorconfig
+/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Model/obj/Debug/net7.0/NatCat.Model.AssemblyInfoInputs.cache
+/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Model/obj/Debug/net7.0/NatCat.Model.AssemblyInfo.cs
+/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Model/obj/Debug/net7.0/NatCat.Model.csproj.CoreCompileInputs.cache
+/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Model/obj/Debug/net7.0/NatCat.Model.dll
+/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Model/obj/Debug/net7.0/refint/NatCat.Model.dll
+/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Model/obj/Debug/net7.0/NatCat.Model.pdb
+/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Model/obj/Debug/net7.0/ref/NatCat.Model.dll

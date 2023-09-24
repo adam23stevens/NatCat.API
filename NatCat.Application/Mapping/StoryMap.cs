@@ -14,7 +14,8 @@ namespace NatCat.Application.Mapping
             CreateMap<Story, StoryListDto>()
                 .ForMember(x => x.CurrentUserCount, x => x.MapFrom(m => m.StoryUsers.Count()))
                 .ForMember(x => x.StoryTypeName, x => x.MapFrom(m => m.StoryType.TypeName))
-                .ForMember(x => x.AssignedUserId, x => x.MapFrom(m => m.StoryParts.OrderBy(p => p.Order).Last().ApplicationUserId));
+                .ForMember(x => x.AssignedUserId, x => x.MapFrom(m => m.StoryParts.OrderBy(p => p.Order).Last().ApplicationUserId))
+                .ForMember(x => x.LastUpdated, x => x.MapFrom(m => m.StoryParts.OrderBy(p => p.Order).Last().DateCreated));
 
             CreateMap<AddStoryReq, Story>();
             CreateMap<Story, ReadStoryResponseDto>()

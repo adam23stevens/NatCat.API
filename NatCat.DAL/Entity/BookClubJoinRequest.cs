@@ -11,6 +11,8 @@ namespace NatCat.DAL.Entity
 
 		public string? RequestingUserProfileName { get; set; }
 
+		public DateTime DateRequested { get; set; }
+
 		[ForeignKey(nameof(BookClubId))]
 		public Guid BookClubId { get; set; }
 		public virtual BookClub? BookClub { get; set; }

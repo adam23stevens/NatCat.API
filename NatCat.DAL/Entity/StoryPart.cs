@@ -13,6 +13,7 @@ namespace NatCat.DAL.Entity
         public bool IsFinalStoryPart { get; set; }
         public DateTime? DateSubmitted { get; set; }
         public DateTime? DeadlineTime { get; set; }
+        public DateTime DateCreated { get; set; }
         public int Order { get; set; }
         public bool IsRhymingRequired { get; set; }
         public string? RhymingWords { get; set; }

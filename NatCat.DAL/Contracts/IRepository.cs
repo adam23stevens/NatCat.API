@@ -12,7 +12,7 @@ namespace NatCat.DAL.Contracts
             QueryParameters<TEntity> queryParameters,
             params Expression<Func<TEntity, object>>[] includes
             );
-        Task<PagedResult<TListDto>> PagedAsync(
+        Task<PagedResult<TListDto>> PagedOrderAsync(
         QueryParameters<TEntity>? queryParameters = null,
         Expression<Func<TEntity, object>>? orderBy = null,
         bool orderByDescending = false,

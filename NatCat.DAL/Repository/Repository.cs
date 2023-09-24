@@ -170,7 +170,7 @@ namespace NatCat.DAL.Repository
             }
         }
 
-        public async Task<PagedResult<TListDto>> PagedAsync(
+        public async Task<PagedResult<TListDto>> PagedOrderAsync(
             QueryParameters<TEntity> queryParameters, 
             Expression<Func<TEntity, object>> orderBy, 
             bool orderByDescending = false,

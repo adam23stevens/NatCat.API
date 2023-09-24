@@ -40,6 +40,8 @@ namespace NatCat.DAL.Seed
 
             SeedBookClubs();
 
+            SeedBookClubInvites();
+
             SeedStoryTypes();
 
             SeedStories();
@@ -556,6 +558,27 @@ namespace NatCat.DAL.Seed
                 };
 
                 _dbContext.BookClubs.Add(newClub);
+                _dbContext.SaveChanges();
+            }
+        }
+
+        private void SeedBookClubInvites()
+        {
+            if (!_dbContext.BookClubJoinRequests.Any())
+            {
+                var adamUser = _dbContext.Users.First(x => x.Email == "adam23stevens@gmail.com");
+                var jamesUser = _dbContext.Users.First(x => x.Email == "jamesovenden@gmail.com");
+                var bookClub = _dbContext.BookClubs.First();
+
+                var bookClubInvite = new BookClubJoinRequest()
+                {
+                    DateRequested = DateTime.Now,
+                    ApplicationUser = jamesUser,
+                    BookClub = bookClub,
+                    RequestingUserProfileName = adamUser.ProfileName
+                };
+
+                _dbContext.BookClubJoinRequests.Add(bookClubInvite);
                 _dbContext.SaveChanges();
             }
         }

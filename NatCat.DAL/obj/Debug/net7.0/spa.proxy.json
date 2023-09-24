@@ -1,0 +1,8 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "",
+"LaunchCommand": "",
+"WorkingDirectory": "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.DAL",
+"MaxTimeoutInSeconds": "120"
+}
+}

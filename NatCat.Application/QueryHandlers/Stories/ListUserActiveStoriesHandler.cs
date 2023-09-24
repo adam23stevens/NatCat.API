@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using MediatR;
 using NatCat.Application.Queries.Stories;
@@ -22,18 +23,22 @@ namespace NatCat.Application.QueryHandlers.Stories
         {
             QueryParameters<Story> qry = new()
             {
-                wc = p => p.StoryUsers.Any(x => x.ApplicationUserId == request.UserId)
+                wc = p => p.StoryParts.Any(x => x.ApplicationUserId == request.UserId)
                       && p.IsBeingWritten
             };
 
             try
             {
-                return await _storyRepository.PagedAsync(qry,
+                var allStories = await _storyRepository.PagedAsync(qry,
                     p => p.StoryParts,
                     p => p.AuthorApplicationUser,
                     p => p.StoryUsers,
                     p => p.StoryType
                 );
+
+                allStories?.Items?.ToList().ForEach(x => x.IsMyTurn = x.AssignedUserId == request.UserId);
+
+                return allStories;
             }
             catch (Exception ex)
             {
