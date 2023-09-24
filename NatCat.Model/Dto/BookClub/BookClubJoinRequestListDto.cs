@@ -1,5 +1,4 @@
-﻿using System;
-namespace NatCat.Model.Dto.BookClub
+﻿namespace NatCat.Model.Dto.BookClub
 {
 	public class BookClubJoinRequestListDto : BaseDto
     {
@@ -10,4 +9,3 @@ namespace NatCat.Model.Dto.BookClub
         public float AverageRating { get; set; }
     }
 }
-

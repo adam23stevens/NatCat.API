@@ -20,6 +20,8 @@ namespace NatCat.Application.Mapping
             CreateMap<AddStoryReq, Story>();
             CreateMap<Story, ReadStoryResponseDto>()
                 .ForMember(m => m.StoryPartDetailDtos, m => m.MapFrom(x => x.StoryParts));
+
+            CreateMap<StoryJoinRequest, StoryJoinRequestListDto>();
         }
     }
 

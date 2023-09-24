@@ -19,8 +19,6 @@ namespace NatCat.Application.QueryHandlers.BookClubs
 
         public async Task<PagedResult<BookClubJoinRequestListDto>> Handle(GetBookClubJoinRequests request, CancellationToken cancellationToken)
         {
-            //var requests = await _bookClubRepository
-            //    .ListAllAsync(q => q.ApplicationUserId == request.UserId);
             QueryParameters<BookClubJoinRequest> qry = new()
             {
                 wc = b => b.ApplicationUserId == request.UserId

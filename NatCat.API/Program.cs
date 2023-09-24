@@ -107,6 +107,7 @@ builder.Services.AddScoped<IRepository<BookClub, BookClubDetailDto, BookClubList
 builder.Services.AddScoped<IRepository<StoryType, StoryTypeDetailDto, StoryTypeListDto>, Repository<StoryType, StoryTypeDetailDto, StoryTypeListDto>>();
 builder.Services.AddScoped<IRepository<StoryPart, StoryPartDetailDto, StoryPartListDto>, Repository<StoryPart, StoryPartDetailDto, StoryPartListDto>>();
 builder.Services.AddScoped<IRepository<BookClubJoinRequest, BookClubJoinRequestDetailDto, BookClubJoinRequestListDto>, Repository<BookClubJoinRequest, BookClubJoinRequestDetailDto, BookClubJoinRequestListDto>>();
+builder.Services.AddScoped<IRepository<StoryJoinRequest, StoryJoinRequestDetailDto, StoryJoinRequestListDto>, Repository<StoryJoinRequest, StoryJoinRequestDetailDto, StoryJoinRequestListDto>>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 

@@ -23,6 +23,7 @@ namespace NatCat.DAL
         public DbSet<BookClub> BookClubs { get; set; }
         public DbSet<StoryPartKeyWord> StoryPartKeyWords { get; set; }
         public DbSet<BookClubJoinRequest> BookClubJoinRequests { get; set; }
+        public DbSet<StoryJoinRequest> StoryJoinRequests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -34,6 +34,8 @@ namespace NatCat.DAL.Configuration
                 .WithMany(x => x.Stories)
                 .HasForeignKey(x => x.AuthorApplicationUserId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+
         }
     }
 }

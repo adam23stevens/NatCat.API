@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NatCat.DAL;
 
@@ -11,9 +12,11 @@ using NatCat.DAL;
 namespace NatCat.DAL.Migrations
 {
     [DbContext(typeof(NatCatDbContext))]
-    partial class NatCatDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230924213551_StoryJoinRequests_Added")]
+    partial class StoryJoinRequests_Added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -616,36 +619,6 @@ namespace NatCat.DAL.Migrations
                     b.ToTable("Stories");
                 });
 
-            modelBuilder.Entity("NatCat.DAL.Entity.StoryJoinRequest", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("DateRequested")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("RequestingUserProfileName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("StoryId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.HasIndex("StoryId");
-
-                    b.ToTable("StoryJoinRequests");
-                });
-
             modelBuilder.Entity("NatCat.DAL.Entity.StoryPart", b =>
                 {
                     b.Property<Guid>("Id")
@@ -942,23 +915,6 @@ namespace NatCat.DAL.Migrations
                     b.Navigation("Genre");
 
                     b.Navigation("StoryType");
-                });
-
-            modelBuilder.Entity("NatCat.DAL.Entity.StoryJoinRequest", b =>
-                {
-                    b.HasOne("NatCat.DAL.Entity.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId");
-
-                    b.HasOne("NatCat.DAL.Entity.Story", "Story")
-                        .WithMany()
-                        .HasForeignKey("StoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ApplicationUser");
-
-                    b.Navigation("Story");
                 });
 
             modelBuilder.Entity("NatCat.DAL.Entity.StoryPart", b =>

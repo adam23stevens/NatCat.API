@@ -77,11 +77,12 @@ namespace NatCat.API.Controllers
         {
             try
             {
-                var req = new LatestStoryPartReq() {
+                var req = new LatestStoryPartReq()
+                {
                     ApplicationUserId = LoggedInUserId,
                     StoryId = storyId
                 };
-                
+
                 var ret = await Mediator.Send(new GetLatestStoryPartQry(req));
 
                 if (ret != null)
@@ -103,7 +104,7 @@ namespace NatCat.API.Controllers
             {
                 await Mediator.Send(new AddStoryPart(req, LoggedInUserId));
 
-                return Ok(); 
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -120,7 +121,7 @@ namespace NatCat.API.Controllers
 
                 return Ok();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -148,6 +149,20 @@ namespace NatCat.API.Controllers
             {
                 await Mediator.Send(new PublishStory(req.Id));
                 return Ok();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetStoryJoinRequests()
+        {
+            try
+            {
+                var requests = await Mediator.Send(new GetStoryJoinRequests(LoggedInUserId));
+                return Ok(requests);
             }
             catch (Exception ex)
             {
