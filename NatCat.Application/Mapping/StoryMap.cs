@@ -38,11 +38,12 @@ namespace NatCat.Application.Mapping
         public StoryPartMap() {
 
             CreateMap<StoryPart, LatestStoryPartResponse>()
-                .ForMember(m => m.MinWords, m => m.MapFrom(x => x.Story.StoryType.MinWordsPerStoryPart))
-                .ForMember(m => m.MaxWords, m => m.MapFrom(x => x.Story.StoryType.MaxWordsPerStoryPart))
-                .ForMember(m => m.MinCharLength, m => m.MapFrom(x => x.Story.StoryType.MinCharLengthPerStoryPart))
-                .ForMember(m => m.MaxCharLength, m => m.MapFrom(x => x.Story.StoryType.MaxCharLengthPerStoryPart))
-                .ForMember(m => m.RequiredKeyWords, m => m.MapFrom(x => x.StoryPartKeyWords.Select(p => p.KeyWord.Word)));
+                //.ForMember(m => m.MinWords, m => m.MapFrom(x => x.Story.StoryType.MinWordsPerStoryPart))
+                //.ForMember(m => m.MaxWords, m => m.MapFrom(x => x.Story.StoryType.MaxWordsPerStoryPart))
+                .ForMember(m => m.MinCharLength, m => m.MapFrom(x => x.Story.MinCharLengthPerStoryPart))
+                .ForMember(m => m.MaxCharLength, m => m.MapFrom(x => x.Story.MaxCharLengthPerStoryPart))
+                .ForMember(m => m.RequiredKeyWords, m => m.MapFrom(x => x.StoryPartKeyWords.Select(p => p.KeyWord.Word)))
+                .ForMember(m => m.PercentageComplete, m => m.MapFrom(x => (float)x.Order / x.Story.MaxStoryParts * 100));
 
             CreateMap<StoryPart, StoryPartDetailDto>();
             CreateMap<StoryPart, StoryPartListDto>();

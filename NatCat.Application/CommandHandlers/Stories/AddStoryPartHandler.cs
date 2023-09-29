@@ -84,12 +84,12 @@ namespace NatCat.Application.CommandHandlers.Stories
                     exceptionMessages.Add("Invalid number of characters submitted");
                 }
 
-                var wordCount = request.AddStoryPartReq.Text.Split(' ').Count();
-                if (wordCount < storyType.MinWordsPerStoryPart
-                 || wordCount > storyType.MaxWordsPerStoryPart)
-                {
-                    exceptionMessages.Add("Invalid number of words submitted");
-                }
+                //var wordCount = request.AddStoryPartReq.Text.Split(' ').Count();
+                //if (wordCount < storyType.MinWordsPerStoryPart
+                // || wordCount > storyType.MaxWordsPerStoryPart)
+                //{
+                //    exceptionMessages.Add("Invalid number of words submitted");
+                //}
 
                 if (storyPart.IsRhymingRequired && !string.IsNullOrEmpty(storyPart.RhymingWords))
                 {

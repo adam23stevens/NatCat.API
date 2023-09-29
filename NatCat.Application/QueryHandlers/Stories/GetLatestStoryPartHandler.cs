@@ -22,7 +22,8 @@ namespace NatCat.Application.QueryHandlers.Stories
         {
             var latestStoryParts = await _storyPartRepository.EntityListAllAsync(
                 p => p.StoryId == request.LatestStoryPartReq.StoryId,
-                p => p.Order, true
+                p => p.Order, true,
+                p => p.Story
             );
 
             if (!latestStoryParts.Any())

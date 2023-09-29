@@ -23,6 +23,8 @@ namespace NatCat.DAL.Entity
         public int TotalStoryRounds { get; set; }
         public bool IsVisibleOnLibrary { get; set; }
         public bool AllowPublicToJoinStory { get; set; }
+        public int MinCharLengthPerStoryPart { get; set; }
+        public int MaxCharLengthPerStoryPart { get; set; }
 
         public int MaxStoryParts => StoryUsers.Count() * TotalStoryRounds;
 
