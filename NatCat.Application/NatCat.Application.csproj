@@ -14,4 +14,12 @@
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="System.Net.Http.Formatting.Extension" Version="5.2.3" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Queries\RhymingPattern\" />
+    <None Remove="QueryHandlers\RhymingPattern\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Queries\RhymingPattern\" />
+    <Folder Include="QueryHandlers\RhymingPattern\" />
+  </ItemGroup>
 </Project>

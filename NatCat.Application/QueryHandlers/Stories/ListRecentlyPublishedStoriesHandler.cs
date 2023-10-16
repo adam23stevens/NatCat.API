@@ -29,7 +29,7 @@ namespace NatCat.Application.QueryHandlers.Stories
                     p => p.StoryParts,
                     p => p.AuthorApplicationUser,
                     p => p.StoryUsers,
-                    p => p.StoryType
+                    p => p.RhymingPattern
                 );
             }
             catch (Exception ex)

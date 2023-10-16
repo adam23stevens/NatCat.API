@@ -43,7 +43,7 @@ namespace NatCat.Application.QueryHandlers.Stories
                            && (string.IsNullOrEmpty(req.TitleSearchText) || story.Title.ToUpper().Contains(req.TitleSearchText.ToUpper()))
                            && (req.GenreIds == null || req.GenreIds.ToList().Contains(story.GenreId))
                            && (req.MaxAuthorCount == 0 || story.StoryUsers.Count() <= req.MaxAuthorCount)
-                           && (req.StoryTypeIds == null || req.StoryTypeIds.ToList().Contains(story.StoryTypeId))
+                           //&& (req.StoryTypeIds == null || req.StoryTypeIds.ToList().Contains(story.StoryTypeId))
                            && (story.StoryParts.Count / story.MaxStoryParts) >= minStoryPartPercentage
                            && (story.StoryParts.Count / story.MaxStoryParts) <= maxStoryPartPercentage,
                 PageNumber = searchForStoriesQry.PageNumber,
@@ -56,7 +56,7 @@ namespace NatCat.Application.QueryHandlers.Stories
                     p => p.StoryParts,
                     p => p.AuthorApplicationUser,
                     p => p.StoryUsers,
-                    p => p.StoryType
+                    p => p.RhymingPattern
                 );
             }
             catch (Exception ex)

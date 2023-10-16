@@ -38,11 +38,13 @@ namespace NatCat.DAL.Seed
 
             SeedGenres();
 
+            SeedRhymingPatterns();
+
             SeedBookClubs();
 
             SeedBookClubInvites();
 
-            SeedStoryTypes();
+            //SeedStoryTypes();
 
             SeedStories();
 
@@ -190,6 +192,37 @@ namespace NatCat.DAL.Seed
 
         #region Stories
 
+        private void SeedRhymingPatterns()
+        {
+            try
+            {
+                if (!_dbContext.RhymingPatterns.Any())
+                {
+                    for (var cnt = 0; cnt < SeedData.RhymingPatternNames.Count(); cnt++)
+                    {
+                        var name = SeedData.RhymingPatternNames.ToArray()[cnt];
+                        var patternStr = SeedData.RhymingPatterns.ToArray()[cnt];
+                        var description = SeedData.RhymingPatternDescriptions.ToArray()[cnt];
+
+                        RhymingPattern pattern = new()
+                        {
+                            Name = name,
+                            PatternStr = patternStr,
+                            Description = description
+                        };
+
+                        _dbContext.RhymingPatterns.Add(pattern);
+                    }
+
+                    _dbContext.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         private void SeedStoryTypes()
         {
             try
@@ -226,8 +259,8 @@ namespace NatCat.DAL.Seed
                             //MaxWordsPerStoryPart = 50,
                             DisplayOrder = cnt,
                             RuleDescription = SeedData.StoryTypeRuleDescriptions.ToArray()[cnt],
-                            IsRhymingRequired = isRhymingRequired,
-                            RhymingPattern = rhymingPattern
+                            //IsRhymingRequired = isRhymingRequired,
+                            //RhymingPattern = rhymingPattern
                         };
 
                         _dbContext.StoryTypes.Add(storyType);
@@ -254,7 +287,8 @@ namespace NatCat.DAL.Seed
                         Synopsis = "A scary ghost story",
                         Genre = _dbContext.Genres.First(x => x.Name == "Horror"),
                         DateCreated = DateTime.Now,
-                        StoryType = _dbContext.StoryTypes.First(x => x.TypeName == "Novel"),
+                        //StoryType = _dbContext.StoryTypes.First(x => x.TypeName == "Novel"),
+                        RhymingPattern = _dbContext.RhymingPatterns.First(x => x.Name == SeedData.RhymingPatternNames.ToArray()[0]),
                         AuthorApplicationUser = _userManager.Users.First(),
                         TotalStoryRounds = 3,
                         MaxUsers = 4,
@@ -284,7 +318,8 @@ namespace NatCat.DAL.Seed
                         Synopsis = "Action packed adventure story",
                         Genre = _dbContext.Genres.First(x => x.Name == "Adventure"),
                         DateCreated = DateTime.Now,
-                        StoryType = _dbContext.StoryTypes.First(x => x.TypeName == "Novel"),
+                        //StoryType = _dbContext.StoryTypes.First(x => x.TypeName == "Novel"),
+                        RhymingPattern = _dbContext.RhymingPatterns.First(x => x.Name == SeedData.RhymingPatternNames.ToArray()[0]),
                         AuthorApplicationUser = _userManager.Users.First(),
                         TotalStoryRounds = 3,
                         MinCharLengthPerStoryPart = 30,
@@ -314,7 +349,8 @@ namespace NatCat.DAL.Seed
                         Synopsis = "A fantasy style novel",
                         Genre = _dbContext.Genres.First(x => x.Name == "Fantasy"),
                         DateCreated = DateTime.Now,
-                        StoryType = _dbContext.StoryTypes.First(x => x.TypeName == "Novel"),
+                        //StoryType = _dbContext.StoryTypes.First(x => x.TypeName == "Novel"),
+                        RhymingPattern = _dbContext.RhymingPatterns.First(x => x.Name == SeedData.RhymingPatternNames.ToArray()[0]),
                         AuthorApplicationUser = _userManager.Users.First(),
                         TotalStoryRounds = 3,
                         MinCharLengthPerStoryPart = 30,

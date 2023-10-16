@@ -11,15 +11,15 @@ using NatCat.Model.Exception;
 
 namespace NatCat.DAL.Repository
 {
-    public class Repository<TEntity, TDetailDto, TListDto> : IRepository<TEntity, TDetailDto, TListDto> where TEntity : BaseGuidEntity
+    public class Repository<TEntity, TDetailDto, TListDto> : IRepository<TEntity, TDetailDto, TListDto> where TEntity : BaseGuidEntity 
     {
         private readonly IMapper _mapper;
         private readonly NatCatDbContext _dbContext;
 
-        public Repository(IMapper mapper, NatCatDbContext dbContext)
+        public Repository(NatCatDbContext dbContext, IMapper mapper)
         {
-            _mapper = mapper;
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         public async virtual Task<Guid> AddAsync(TEntity source)
@@ -280,6 +280,10 @@ namespace NatCat.DAL.Repository
         }
 
         private Expression<Func<TEntity, bool>> NotSoftDeleted => x => !x.IsDeleted;
+
+
+
+
     }
 }
 

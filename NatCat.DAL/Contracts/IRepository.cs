@@ -7,7 +7,6 @@ namespace NatCat.DAL.Contracts
 {
     public interface IRepository<TEntity, TDetailDto, TListDto>
     {
-        Task<Guid> AddAsync(TEntity source);
         Task<PagedResult<TListDto>> PagedAsync(
             QueryParameters<TEntity> queryParameters,
             params Expression<Func<TEntity, object>>[] includes
@@ -39,6 +38,7 @@ namespace NatCat.DAL.Contracts
         );
         Task<TDetailDto> GetAsync(Guid? id);
         Task<TEntity> GetEntityAsync(Guid? id, params Expression<Func<TEntity, object>>[] includes);
+        Task<Guid> AddAsync(TEntity source);
         Task UpdateAsync(Guid id, TEntity entity);
         Task DeleteAsync(Guid id);
         Task SoftDeleteAsync(Guid id);

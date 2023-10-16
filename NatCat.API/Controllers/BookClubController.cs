@@ -19,11 +19,19 @@ namespace NatCat.API.Controllers
         public BookClubController(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor) { }
 
         [HttpGet]
-        public async Task<ActionResult<PagedResult<BookClubListDto>>> GetCurrentUserBookClubs()
+        public async Task<ActionResult<PagedResult<BookClubListDto>>> GetCurrentUserBookClubsPaged()
         { 
             var ret = await Mediator.Send(new BookClubsPaged(LoggedInUserId));
             return Ok(ret);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetCurrentUserBookClubs()
+        {
+            var ret = await Mediator.Send(new GetUserBookClubs(LoggedInUserId));
+            return Ok(ret);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> SendRequestToJoinBookClub([FromBody] SendRequestToJoinBookClubReq request)

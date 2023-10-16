@@ -10,7 +10,6 @@ namespace NatCat.Model.Web.Request.Story
         public int MinAuthorCount { get; set; }
         public int MaxAuthorCount { get; set; }
         public StoryPosition storyPosition { get; set; }
-        public IEnumerable<Guid>? StoryTypeIds { get; set; }
     }
 }
 

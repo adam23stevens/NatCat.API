@@ -16,6 +16,7 @@ using NatCat.DAL.Seed;
 using NatCat.Model.Dto.BookClub;
 using NatCat.Model.Dto.Genre;
 using NatCat.Model.Dto.KeyWord;
+using NatCat.Model.Dto.RhymingPattern;
 using NatCat.Model.Dto.Story;
 using Serilog;
 
@@ -108,6 +109,7 @@ builder.Services.AddScoped<IRepository<StoryType, StoryTypeDetailDto, StoryTypeL
 builder.Services.AddScoped<IRepository<StoryPart, StoryPartDetailDto, StoryPartListDto>, Repository<StoryPart, StoryPartDetailDto, StoryPartListDto>>();
 builder.Services.AddScoped<IRepository<BookClubJoinRequest, BookClubJoinRequestDetailDto, BookClubJoinRequestListDto>, Repository<BookClubJoinRequest, BookClubJoinRequestDetailDto, BookClubJoinRequestListDto>>();
 builder.Services.AddScoped<IRepository<StoryJoinRequest, StoryJoinRequestDetailDto, StoryJoinRequestListDto>, Repository<StoryJoinRequest, StoryJoinRequestDetailDto, StoryJoinRequestListDto>>();
+builder.Services.AddScoped<IRepository<RhymingPattern, RhymingPatternDto, RhymingPatternDto>, Repository<RhymingPattern, RhymingPatternDto, RhymingPatternDto>>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 

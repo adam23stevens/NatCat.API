@@ -10,8 +10,9 @@ namespace NatCat.Application.Mapping
         public BookClubMap()
         {
             CreateMap<BookClub, BookClubDetailDto>()
-                   .ForMember(x => x.ApplicationUserProfileNames, x => x.MapFrom(y => y.ApplicationUsers.Select(x => x.ProfileName)));
-            CreateMap<BookClub, BookClubListDto>();
+                   .ForMember(x => x.UserDtos, x => x.MapFrom(y => y.ApplicationUsers));
+            CreateMap<BookClub, BookClubListDto>()
+                   .ForMember(x => x.UserDtos, x => x.MapFrom(y => y.ApplicationUsers));
             CreateMap<AddBookClub, BookClub>();
             CreateMap<BookClubJoinRequest, BookClubJoinRequestDetailDto>();
             CreateMap<BookClubJoinRequest, BookClubJoinRequestListDto>();

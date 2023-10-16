@@ -1,7 +1,7 @@
 ﻿using System;
 namespace NatCat.Model.Auth
 {
-    public class UserDTO
+    public class UserDto
     {
         public string? Id { get; set; }
         public string? ProfileName { get; set; }

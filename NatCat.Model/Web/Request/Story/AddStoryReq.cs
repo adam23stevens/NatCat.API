@@ -9,6 +9,7 @@ namespace NatCat.Model.Web.Story
         public Guid StoryTypeId { get; set; }
         public StoryJoinType StoryJoinType { get; set; }
         public Guid? BookClubId { get; set; }
+        public Guid RhymingPatternId { get; set; }
         public int MaxAuthors { get; set; }
         public int TotalStoryRounds { get; set; }
         public int VisibleWordCntPerPart { get; set; }

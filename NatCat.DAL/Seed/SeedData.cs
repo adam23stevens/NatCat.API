@@ -40,6 +40,16 @@ namespace NatCat.DAL.Seed
         };
 
         internal static string BookClubName => "Smarty Pants Stories";
+
+        internal static IEnumerable<string> RhymingPatternNames => new string[] { "No Rhyming", "ABAB Rhyming", "AABB Rhyming", "Limeric" };
+        internal static IEnumerable<string> RhymingPatterns => new string[] { string.Empty, "ABAB", "AABB", "AABBA" };
+        internal static IEnumerable<string> RhymingPatternDescriptions => new string[]
+        {
+            "Standard story that has no rhyming.",
+            "The first line and third line must rhyme. The second and fourth line must rhyme. And so on.",
+            "The first and second lines must rhyme. The third and fourth lines must rhyme. And so on.",
+            "Five lines only. The first, second and fifth lines must rhyme. The third and fourth lines must rhyme."
+        };
     }
 }
 

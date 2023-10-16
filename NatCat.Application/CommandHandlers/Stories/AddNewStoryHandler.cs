@@ -54,12 +54,12 @@ namespace NatCat.Application.CommandHandlers.Stories
                 int cnt = 1;
                 var bookClub = await _bookClubRepository.GetAsync(req.BookClubId);
 
-                foreach (var userId in bookClub.ApplicationUserIds.OrderBy(x => Guid.NewGuid()))
+                foreach (var user in bookClub?.UserDtos?.OrderBy(x => Guid.NewGuid()))
                 {
                     StoryUser su = new()
                     {
                         Story = story,
-                        ApplicationUserId = userId,
+                        ApplicationUserId = user.Id,
                         Order = cnt
                     };
                     story.StoryUsers.Add(su);

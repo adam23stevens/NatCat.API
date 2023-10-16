@@ -10,6 +10,7 @@ using NatCat.Application.Commands.Stories;
 using NatCat.DAL.Contracts;
 using NatCat.DAL.Entity;
 using NatCat.DAL.Entity.Extensions;
+using NatCat.Model.Dto.RhymingPattern;
 using NatCat.Model.Dto.Story;
 using NatCat.Model.Web.Response.RhymingWord;
 
@@ -19,15 +20,18 @@ namespace NatCat.Application.CommandHandlers.Stories
     {
         private IRepository<Story, StoryDetailDto, StoryListDto> _storyRepository;
         private IRepository<StoryPart, StoryPartDetailDto, StoryPartListDto> _storyPartRepository;
-        private IRepository<StoryType, StoryTypeDetailDto, StoryTypeListDto> _storyTypeRepository;
+        private IRepository<RhymingPattern, RhymingPatternDto, RhymingPatternDto> _rhymingRepository;
+        //private IRepository<StoryType, StoryTypeDetailDto, StoryTypeListDto> _storyTypeRepository;
         public AddStoryPartHandler(
             IRepository<Story, StoryDetailDto, StoryListDto> storyRepository,
             IRepository<StoryPart, StoryPartDetailDto, StoryPartListDto> storyPartRepository,
-            IRepository<StoryType, StoryTypeDetailDto, StoryTypeListDto> storyTypeRepository)
+            IRepository<StoryType, StoryTypeDetailDto, StoryTypeListDto> storyTypeRepository,
+            IRepository<RhymingPattern, RhymingPatternDto, RhymingPatternDto> rhymingRepository)
         {
             _storyRepository = storyRepository;
             _storyPartRepository = storyPartRepository;
-            _storyTypeRepository = storyTypeRepository;
+            //_storyTypeRepository = storyTypeRepository;
+            _rhymingRepository = rhymingRepository;
         }
 
         public async Task<Unit> Handle(AddStoryPart request, CancellationToken cancellationToken)
@@ -44,12 +48,14 @@ namespace NatCat.Application.CommandHandlers.Stories
                 p => p.StoryParts,
                 p => p.StoryUsers,
                 p => p.Genre);
-                var storyType = await _storyTypeRepository.GetEntityAsync(story.StoryTypeId);
+                //var storyType = await _storyTypeRepository.GetEntityAsync(story.StoryTypeId);
 
+                var storyRhymingPattern = await _rhymingRepository.GetAsync(story.RhymingPatternId);
                 var orderStoryParts = story.StoryParts.OrderByDescending(x => x.Order);
                 var storyPartId = orderStoryParts.First().Id;
                 var storyPart = await _storyPartRepository.GetEntityAsync(storyPartId,
                 p => p.StoryPartKeyWords);
+
 
                 var exceptionMessages = new List<string>();
 
@@ -78,8 +84,8 @@ namespace NatCat.Application.CommandHandlers.Stories
 
                 var textToValidate = request.AddStoryPartReq.Text.TrimStart().TrimEnd();
 
-                if (request.AddStoryPartReq.Text.Length < storyType.MinCharLengthPerStoryPart
-                 || request.AddStoryPartReq.Text.Length > storyType.MaxCharLengthPerStoryPart)
+                if (request.AddStoryPartReq.Text.Length < story.MinCharLengthPerStoryPart
+                 || request.AddStoryPartReq.Text.Length > story.MaxCharLengthPerStoryPart)
                 {
                     exceptionMessages.Add("Invalid number of characters submitted");
                 }
@@ -150,13 +156,10 @@ namespace NatCat.Application.CommandHandlers.Stories
                     var nextRhymingRequired = false;
                     string? wordToRhymeWith = null;
                     string? nextRhymingRequiredWords = null;
-                    if (storyType.IsRhymingRequired)
+                    var rhymingPatternStr = storyRhymingPattern.PatternStr;
+
+                    if (rhymingPatternStr != string.Empty)
                     {
-                        var rhymingPatternStr = storyType.RhymingPattern;
-                        if (rhymingPatternStr == null)
-                        {
-                            throw new Exception("Invalid rhyming pattern found");
-                        }
                         while (rhymingPatternStr.Length <= storyPart.Order + 1)
                         {
                             rhymingPatternStr += rhymingPatternStr;

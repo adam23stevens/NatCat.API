@@ -44,7 +44,7 @@ namespace NatCat.API.Controllers
 
         [Authorize]
         [HttpGet("GetUserByProfileName")]
-        public ActionResult<IEnumerable<UserDTO>> GetUserByProfileName(string qry)
+        public ActionResult<IEnumerable<UserDto>> GetUserByProfileName(string qry)
         {
             if (qry == null || qry.Length < 3) return BadRequest("Search query must be at least three characters long.");
 
@@ -53,7 +53,7 @@ namespace NatCat.API.Controllers
 
             if (users == null) return NoContent();
 
-            var retUsers = users.Select(x => new UserDTO
+            var retUsers = users.Select(x => new UserDto
             {
                 Id = x.Id,
                 Email = x.Email,
@@ -65,11 +65,11 @@ namespace NatCat.API.Controllers
 
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult<UserDTO>> GetCurrentUser()
+        public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
             var user = await _userManager.FindByEmailAsync(User.FindFirstValue(ClaimTypes.Email));
             
-            return new UserDTO()
+            return new UserDto()
             {
                 Id = user.Id,
                 Email = user.Email,
@@ -158,7 +158,7 @@ namespace NatCat.API.Controllers
                     {
                         IsAuthSuccessful = true,
                         Token = token,
-                        userDTO = new UserDTO()
+                        userDTO = new UserDto()
                         {
                             Id = user.Id,
                             Email = user.Email,

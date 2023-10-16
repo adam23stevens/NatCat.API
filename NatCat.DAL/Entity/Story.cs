@@ -25,16 +25,22 @@ namespace NatCat.DAL.Entity
         public bool AllowPublicToJoinStory { get; set; }
         public int MinCharLengthPerStoryPart { get; set; }
         public int MaxCharLengthPerStoryPart { get; set; }
+        public int PreviousTextVisibilityPercentage { get; set; }
+        public MaskingType MaskingType { get; set; }
 
         public int MaxStoryParts => StoryUsers.Count() * TotalStoryRounds;
+
+        [ForeignKey(nameof(RhymingPatternId))]
+        public Guid RhymingPatternId { get; set; }
+        public virtual RhymingPattern? RhymingPattern { get; set; }
 
         [ForeignKey(nameof(GenreId))]
         public Guid GenreId { get; set; }
         public virtual Genre? Genre { get; set; }
 
-        [ForeignKey(nameof(StoryTypeId))]
-        public Guid StoryTypeId { get; set; }
-        public virtual StoryType? StoryType { get; set; }
+        //[ForeignKey(nameof(StoryTypeId))]
+        //public Guid StoryTypeId { get; set; }
+        //public virtual StoryType? StoryType { get; set; }
 
         [ForeignKey(nameof(BookClubId))]
         public Guid BookClubId { get; set; }

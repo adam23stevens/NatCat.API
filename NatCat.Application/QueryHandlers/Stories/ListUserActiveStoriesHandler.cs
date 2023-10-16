@@ -33,7 +33,7 @@ namespace NatCat.Application.QueryHandlers.Stories
                     p => p.StoryParts,
                     p => p.AuthorApplicationUser,
                     p => p.StoryUsers,
-                    p => p.StoryType
+                    p => p.RhymingPattern
                 );
 
                 allStories?.Items?.ToList().ForEach(x => x.IsMyTurn = x.AssignedUserId == request.UserId);

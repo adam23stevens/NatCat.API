@@ -24,10 +24,11 @@ namespace NatCat.DAL.Configuration
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder
-                .HasOne(x => x.StoryType)
+                .HasOne(x => x.RhymingPattern)
                 .WithMany(x => x.Stories)
-                .HasForeignKey(x => x.StoryTypeId)
+                .HasForeignKey(x => x.RhymingPatternId)
                 .OnDelete(DeleteBehavior.Restrict);
+                
             
             builder
                 .HasOne(x => x.AuthorApplicationUser)
