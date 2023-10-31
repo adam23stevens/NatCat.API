@@ -26,7 +26,10 @@ namespace NatCat.DAL.Entity
         public int MinCharLengthPerStoryPart { get; set; }
         public int MaxCharLengthPerStoryPart { get; set; }
         public int PreviousTextVisibilityPercentage { get; set; }
-        public MaskingType MaskingType { get; set; }
+
+        [ForeignKey(nameof(MaskingTypeId))]
+        public Guid MaskingTypeId { get; set; }
+        public virtual MaskingType? MaskingType { get; set; }
 
         public int MaxStoryParts => StoryUsers.Count() * TotalStoryRounds;
 

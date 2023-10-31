@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <None Remove="Dto\RhymingPattern\" />
+    <None Remove="Dto\MaskingType\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dto\RhymingPattern\" />
+    <Folder Include="Dto\MaskingType\" />
   </ItemGroup>
 </Project>

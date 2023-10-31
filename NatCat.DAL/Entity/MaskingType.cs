@@ -1,12 +1,10 @@
 ﻿using System;
 namespace NatCat.DAL.Entity
 {
-	public enum MaskingType
+	public class MaskingType : BaseGuidEntity
 	{
-		Invisible,
-		XMasking,
-		LetterJumble,
-		WordJumble
+		public string Name { get; set; }
+		public string Description { get; set; }
+		public virtual ICollection<Story>? Stories { get; set; }
 	}
 }
-

@@ -1,117 +1,91 @@
 ﻿<Properties StartupConfiguration="{1250C6F4-0850-4B70-8CF0-2F839384F3DF}|https">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../NatCat.DAL/Entity/RhymingPattern.cs">
-    <Files>
-      <File FileName="../NatCat.Model/Auth/UserDTO.cs" Line="11" Column="1" IsPinned="True" />
-      <File FileName="../NatCat.Application/Queries/BookClubs/GetBookClubJoinRequests.cs" Line="16" Column="2" />
-      <File FileName="../NatCat.Application/Queries/Stories/GetStoryJoinRequests.cs" Line="13" Column="20" />
-      <File FileName="../NatCat.Application/QueryHandlers/Stories/GetStoryJoinRequestsHandler.cs" Line="12" Column="3" />
-      <File FileName="../NatCat.Application/QueryHandlers/BookClubs/GetBookClubJoinRequestsHandler.cs" Line="21" Column="10" />
-      <File FileName="../NatCat.DAL/Repository/Repository.cs" Line="1" Column="1" />
-      <File FileName="../NatCat.Model/Dto/Story/StoryJoinRequestDetailDto.cs" Line="1" Column="1" />
-      <File FileName="Controllers/StoryController.cs" Line="79" Column="14" />
-      <File FileName="Controllers/BookClubController.cs" Line="33" Column="10" />
-      <File FileName="Program.cs" Line="109" Column="26" />
-      <File FileName="../NatCat.Model/Dto/Story/StoryJoinRequestListDto.cs" Line="11" Column="6" />
-      <File FileName="../NatCat.DAL/Seed/DbInitialiser.cs" Line="321" Column="57" />
-      <File FileName="../NatCat.DAL/Seed/SeedData.cs" Line="22" Column="129" />
-      <File FileName="../NatCat.DAL/NatCatDbContext.cs" Line="32" Column="59" />
-      <File FileName="../NatCat.DAL/Configuration/StoryConfiguration.cs" Line="27" Column="42" />
-      <File FileName="../NatCat.DAL/Configuration/BookClubConfiguration.cs" Line="12" Column="45" />
-      <File FileName="../NatCat.DAL/Configuration/ReviewConfiguration.cs" Line="1" Column="1" />
-      <File FileName="../NatCat.DAL/Configuration/StoryPartConfiguration.cs" Line="1" Column="1" />
-      <File FileName="../NatCat.Application/Mapping/StoryMap.cs" Line="39" Column="1" />
-      <File FileName="../NatCat.Application/Mapping/BookClubMap.cs" Line="9" Column="6" />
-      <File FileName="../NatCat.DAL/Entity/Story.cs" Line="27" Column="59" />
-      <File FileName="../NatCat.DAL/Entity/StoryJoinRequest.cs" Line="7" Column="57" />
-      <File FileName="../NatCat.Application/QueryHandlers/Stories/ListAllActiveStoryTypesHandler.cs" Line="1" Column="1" />
-      <File FileName="../NatCat.Model/Web/Response/Story/LatestStoryPartResponse.cs" Line="18" Column="47" />
-      <File FileName="../NatCat.Application/QueryHandlers/Stories/GetLatestStoryPartHandler.cs" Line="21" Column="41" />
-      <File FileName="../NatCat.DAL/Entity/StoryPart.cs" Line="15" Column="52" />
-      <File FileName="../NatCat.Application/CommandHandlers/Stories/AddStoryPartHandler.cs" Line="81" Column="80" />
-      <File FileName="../NatCat.DAL/Entity/StoryType.cs" Line="7" Column="53" />
-      <File FileName="../NatCat.Model/Dto/Story/StoryTypeListDto.cs" Line="3" Column="42" />
-      <File FileName="../NatCat.DAL/Entity/BaseGuidEntity.cs" Line="7" Column="29" />
-      <File FileName="../NatCat.Model/Dto/Story/StoryTypeDetailDto.cs" Line="1" Column="1" />
-      <File FileName="../NatCat.Model/Dto/BaseDto.cs" Line="6" Column="15" />
-      <File FileName="../NatCat.Model/Web/Request/Story/AddStoryReq.cs" Line="6" Column="6" />
-      <File FileName="Controllers/GenreController.cs" Line="17" Column="16" />
-      <File FileName="../NatCat.Model/Dto/BookClub/BookClubDetailDto.cs" Line="8" Column="35" />
-      <File FileName="../NatCat.Application/Queries/BookClubs/GetBookClub.cs" Line="13" Column="4" />
-      <File FileName="../NatCat.Application/Queries/BookClubs/BookClubsPaged.cs" Line="12" Column="5" />
-      <File FileName="../NatCat.Application/Queries/BookClubs/GetUserBookClubs.cs" Line="7" Column="73" />
-      <File FileName="../NatCat.Application/QueryHandlers/BookClubs/GetUserBookClubsHandler.cs" Line="30" Column="1" />
-      <File FileName="../NatCat.Application/QueryHandlers/BookClubs/GetBookClubHandler.cs" Line="20" Column="58" />
-      <File FileName="../NatCat.Application/QueryHandlers/BookClubs/BookClubsPagedHandler.cs" Line="31" Column="54" />
-      <File FileName="../NatCat.DAL/Contracts/IRepository.cs" Line="40" Column="26" />
-      <File FileName="../NatCat.Application/CommandHandlers/Stories/AddNewStoryHandler.cs" Line="60" Column="22" />
-      <File FileName="../NatCat.Application/QueryHandlers/Stories/GetStoryHandler.cs" Line="23" Column="59" />
-      <File FileName="../NatCat.Application/Queries/Stories/GetStory.cs" Line="7" Column="1" />
-      <File FileName="../NatCat.DAL/Entity/BookClub.cs" Line="6" Column="49" />
-      <File FileName="../NatCat.Application/Mapping/GenreMap.cs" Line="1" Column="1" />
-      <File FileName="../NatCat.Application/Mapping/KeyWordMap.cs" Line="1" Column="1" />
-      <File FileName="../NatCat.Application/Mapping/UserMap.cs" Line="10" Column="19" />
-      <File FileName="../NatCat.DAL/Entity/ApplicationUser.cs" Line="7" Column="39" />
-      <File FileName="../NatCat.Model/Dto/BookClub/BookClubListDto.cs" Line="3" Column="36" />
-      <File FileName="../NatCat.DAL/Entity/RhymingPattern.cs" Line="11" Column="1" />
-      <File FileName="../NatCat.DAL/Entity/Review.cs" Line="5" Column="41" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="NatCat.API" expanded="True">
-            <Node name="NatCat.API">
-              <Node name="Properties" expanded="True" />
-              <Node name="Service" expanded="True" />
-              <Node name="appsettings.json" expanded="True" />
-            </Node>
-            <Node name="NatCat.Application">
-              <Node name="Helpers" expanded="True" />
-              <Node name="Queries">
-                <Node name="Stories" expanded="True" />
-              </Node>
-              <Node name="QueryHandlers" expanded="True">
-                <Node name="BookClubs" expanded="True" />
-                <Node name="Stories" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="NatCat.DAL">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="Configuration" expanded="True" />
-              <Node name="Contracts" expanded="True" />
-              <Node name="Entity">
-                <Node name="RhymingPattern.cs" selected="True" />
-              </Node>
-              <Node name="Repository" expanded="True" />
-              <Node name="Seed" expanded="True" />
-            </Node>
-            <Node name="NatCat.Model">
-              <Node name="Dto" expanded="True">
-                <Node name="Story" expanded="True" />
-              </Node>
-              <Node name="Exception" expanded="True" />
-              <Node name="Helper" expanded="True" />
-              <Node name="StaticData" expanded="True" />
-              <Node name="Web" expanded="True">
-                <Node name="Request" expanded="True">
-                  <Node name="Story" expanded="True" />
-                </Node>
-                <Node name="Response" expanded="True">
-                  <Node name="Story" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.NatCat.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Application/QueryHandlers/BookClubs/GetBookClubHandler.cs" line="20" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.NatCat.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../NatCat.DAL/Seed/DbInitialiser.cs">
+    <Files>
+      <File FileName="../NatCat.Model/Auth/UserDTO.cs" Line="11" Column="1" IsPinned="True" />
+      <File FileName="../NatCat.Application/Queries/BookClubs/GetBookClubJoinRequests.cs" />
+      <File FileName="../NatCat.Application/Queries/Stories/GetStoryJoinRequests.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/Stories/GetStoryJoinRequestsHandler.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/BookClubs/GetBookClubJoinRequestsHandler.cs" />
+      <File FileName="../NatCat.DAL/Repository/Repository.cs" />
+      <File FileName="../NatCat.Model/Dto/Story/StoryJoinRequestDetailDto.cs" />
+      <File FileName="Controllers/StoryController.cs" />
+      <File FileName="Controllers/BookClubController.cs" />
+      <File FileName="Program.cs" />
+      <File FileName="../NatCat.Model/Dto/Story/StoryJoinRequestListDto.cs" />
+      <File FileName="../NatCat.DAL/NatCatDbContext.cs" />
+      <File FileName="../NatCat.DAL/Configuration/StoryConfiguration.cs" />
+      <File FileName="../NatCat.DAL/Configuration/BookClubConfiguration.cs" />
+      <File FileName="../NatCat.DAL/Configuration/ReviewConfiguration.cs" />
+      <File FileName="../NatCat.DAL/Configuration/StoryPartConfiguration.cs" />
+      <File FileName="../NatCat.Application/Mapping/StoryMap.cs" />
+      <File FileName="../NatCat.Application/Mapping/BookClubMap.cs" />
+      <File FileName="../NatCat.DAL/Entity/Story.cs" />
+      <File FileName="../NatCat.DAL/Entity/StoryJoinRequest.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/Stories/ListAllActiveStoryTypesHandler.cs" />
+      <File FileName="../NatCat.Model/Web/Response/Story/LatestStoryPartResponse.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/Stories/GetLatestStoryPartHandler.cs" />
+      <File FileName="../NatCat.DAL/Entity/StoryPart.cs" />
+      <File FileName="../NatCat.Application/CommandHandlers/Stories/AddStoryPartHandler.cs" />
+      <File FileName="../NatCat.DAL/Entity/StoryType.cs" />
+      <File FileName="../NatCat.Model/Dto/Story/StoryTypeListDto.cs" />
+      <File FileName="../NatCat.DAL/Entity/BaseGuidEntity.cs" />
+      <File FileName="../NatCat.Model/Dto/Story/StoryTypeDetailDto.cs" />
+      <File FileName="../NatCat.Model/Dto/BaseDto.cs" />
+      <File FileName="../NatCat.Model/Web/Request/Story/AddStoryReq.cs" />
+      <File FileName="Controllers/GenreController.cs" />
+      <File FileName="../NatCat.Model/Dto/BookClub/BookClubDetailDto.cs" />
+      <File FileName="../NatCat.Application/Queries/BookClubs/GetBookClub.cs" />
+      <File FileName="../NatCat.Application/Queries/BookClubs/BookClubsPaged.cs" />
+      <File FileName="../NatCat.Application/Queries/BookClubs/GetUserBookClubs.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/BookClubs/GetUserBookClubsHandler.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/BookClubs/GetBookClubHandler.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/BookClubs/BookClubsPagedHandler.cs" />
+      <File FileName="../NatCat.Application/CommandHandlers/Stories/AddNewStoryHandler.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/Stories/GetStoryHandler.cs" />
+      <File FileName="../NatCat.Application/Queries/Stories/GetStory.cs" />
+      <File FileName="../NatCat.DAL/Entity/BookClub.cs" />
+      <File FileName="../NatCat.Application/Mapping/GenreMap.cs" />
+      <File FileName="../NatCat.Application/Mapping/KeyWordMap.cs" />
+      <File FileName="../NatCat.Application/Mapping/UserMap.cs" />
+      <File FileName="../NatCat.DAL/Entity/ApplicationUser.cs" />
+      <File FileName="../NatCat.Model/Dto/BookClub/BookClubListDto.cs" />
+      <File FileName="../NatCat.DAL/Entity/Review.cs" />
+      <File FileName="../NatCat.DAL/Entity/MaskingType.cs" />
+      <File FileName="../NatCat.DAL/Seed/IDbInitialiser.cs" />
+      <File FileName="../NatCat.DAL/Entity/Genre.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/Stories/ListRecentlyPublishedStoriesHandler.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/Stories/ListAllPublishedStoriesHandler.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/Stories/SearchForStoriesQryHandler.cs" />
+      <File FileName="../NatCat.Application/Queries/Stories/SearchForStoriesQry.cs" />
+      <File FileName="../NatCat.Model/Web/Request/Story/SearchForStoriesReq.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/Stories/ListUserActiveStoriesHandler.cs" />
+      <File FileName="../NatCat.DAL/Contracts/ISimpleRepository.cs" />
+      <File FileName="../NatCat.DAL/Repository/SimpleRepository.cs" />
+      <File FileName="../NatCat.Application/Commands/Stories/AddStory.cs" />
+      <File FileName="../NatCat.DAL/Seed/DbInitialiser.cs" Line="196" Column="10" />
+      <File FileName="../NatCat.Application/Queries/Stories/ListUserActiveStories.cs" />
+      <File FileName="../NatCat.Application/Queries/KeyWords/ListKeyWords.cs" />
+      <File FileName="../NatCat.Application/CommandHandlers/Stories/PublishStoryHandler.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/RhymingPattern/ListRhymingPatternsHandler.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/KeyWords/ListKeyWordsHandler.cs" />
+      <File FileName="../NatCat.DAL/Entity/RhymingPattern.cs" />
+      <File FileName="../NatCat.Model/Dto/RhymingPattern/RhymingPatternDto.cs" />
+      <File FileName="../NatCat.Model/Dto/KeyWord/KeyWordDetailDto.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/Genres/GenresListHandler.cs" />
+      <File FileName="../NatCat.Application/Mapping/RhymingPatternMap.cs" />
+      <File FileName="../NatCat.Application/Queries/MaskingType/ListMaskingTypes.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/MaskingType/ListMaskingTypesHandler.cs" />
+      <File FileName="../NatCat.Application/Mapping/MaskingTypeMap.cs" />
+      <File FileName="../NatCat.DAL/Seed/SeedData.cs" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

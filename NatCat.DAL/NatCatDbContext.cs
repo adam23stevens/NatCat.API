@@ -25,6 +25,7 @@ namespace NatCat.DAL
         public DbSet<BookClubJoinRequest> BookClubJoinRequests { get; set; }
         public DbSet<StoryJoinRequest> StoryJoinRequests { get; set; }
         public DbSet<RhymingPattern> RhymingPatterns { get; set; }
+        public DbSet<MaskingType> MaskingTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

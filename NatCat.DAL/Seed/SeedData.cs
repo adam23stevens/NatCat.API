@@ -50,6 +50,15 @@ namespace NatCat.DAL.Seed
             "The first and second lines must rhyme. The third and fourth lines must rhyme. And so on.",
             "Five lines only. The first, second and fifth lines must rhyme. The third and fourth lines must rhyme."
         };
+
+        internal static IEnumerable<string> MaskingTypeNames => new string[] { "Invisible masking", "X masking", "Letter jumble", "Word jumble" };
+        internal static IEnumerable<string> MaskingTypeDescriptions => new string[]
+        {
+            "Previous text is completely invisible to the next writer",
+            "Previous letters in the last text are all replaced with the letter 'x'",
+            "Previous letters in each of the words of the last text are jumbled, but words remain in the correct order",
+            "Previous words in the last text are jumbled, but each have their letters in the correct order"
+        };
     }
 }
 

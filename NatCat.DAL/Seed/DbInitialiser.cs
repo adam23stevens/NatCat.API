@@ -40,6 +40,8 @@ namespace NatCat.DAL.Seed
 
             SeedRhymingPatterns();
 
+            SeedMaskingTypes();
+
             SeedBookClubs();
 
             SeedBookClubInvites();
@@ -191,6 +193,33 @@ namespace NatCat.DAL.Seed
         #endregion
 
         #region Stories
+
+        private void SeedMaskingTypes()
+        {
+            try
+            {
+                if (!_dbContext.MaskingTypes.Any())
+                {
+                    for (var cnt = 0; cnt< SeedData.MaskingTypeNames.Count(); cnt++)
+                    {
+                        var name = SeedData.MaskingTypeNames.ToArray()[cnt];
+                        var description = SeedData.MaskingTypeDescriptions.ToArray()[cnt];
+
+                        MaskingType maskingType = new()
+                        {
+                            Name = name,
+                            Description = description
+                        };
+
+                        _dbContext.MaskingTypes.Add(maskingType);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
         private void SeedRhymingPatterns()
         {

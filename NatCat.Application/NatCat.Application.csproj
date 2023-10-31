@@ -17,9 +17,13 @@
   <ItemGroup>
     <None Remove="Queries\RhymingPattern\" />
     <None Remove="QueryHandlers\RhymingPattern\" />
+    <None Remove="Queries\MaskingType\" />
+    <None Remove="QueryHandlers\MaskingType\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Queries\RhymingPattern\" />
     <Folder Include="QueryHandlers\RhymingPattern\" />
+    <Folder Include="Queries\MaskingType\" />
+    <Folder Include="QueryHandlers\MaskingType\" />
   </ItemGroup>
 </Project>
