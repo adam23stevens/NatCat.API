@@ -42,12 +42,15 @@ namespace NatCat.Application.CommandHandlers.Stories
             story.DateCreated = DateTime.Now;
             story.IsBeingWritten = true;
             story.IsVisibleOnLibrary = false;
-            story.StoryUsers.Add(new()
-            {
-                Order = 0,
-                ApplicationUserId = request.LoggedInUserId,
-                Story = story
-            });
+            story.StoryTypeId = req.StoryTypeId;
+            
+            // story.StoryUsers.Add(new()
+            // {
+            //     Order = 0,
+            //     ApplicationUserId = request.LoggedInUserId,
+            //     Story = story
+            // });
+            story.AuthorApplicationUserId = request.LoggedInUserId;
 
             if (req.BookClubId != null)
             {

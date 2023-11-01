@@ -41,9 +41,9 @@ namespace NatCat.DAL.Entity
         public Guid GenreId { get; set; }
         public virtual Genre? Genre { get; set; }
 
-        //[ForeignKey(nameof(StoryTypeId))]
-        //public Guid StoryTypeId { get; set; }
-        //public virtual StoryType? StoryType { get; set; }
+        [ForeignKey(nameof(StoryTypeId))]
+        public Guid StoryTypeId { get; set; }
+        public virtual StoryType? StoryType { get; set; }
 
         [ForeignKey(nameof(BookClubId))]
         public Guid BookClubId { get; set; }

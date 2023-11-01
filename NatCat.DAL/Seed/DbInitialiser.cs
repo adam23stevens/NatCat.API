@@ -46,7 +46,7 @@ namespace NatCat.DAL.Seed
 
             SeedBookClubInvites();
 
-            //SeedStoryTypes();
+            SeedStoryTypes();
 
             SeedStories();
 
@@ -283,7 +283,7 @@ namespace NatCat.DAL.Seed
                         }
                         StoryType storyType = new()
                         {
-                            TypeName = SeedData.StoryTypes.ToArray()[cnt],
+                            Name = SeedData.StoryTypes.ToArray()[cnt],
                             MinCharLengthPerStoryPart = 15,
                             MaxCharLengthPerStoryPart = 150,
                             //MinWordsPerStoryPart = 3,
@@ -318,7 +318,7 @@ namespace NatCat.DAL.Seed
                         Synopsis = "A scary ghost story",
                         Genre = _dbContext.Genres.First(x => x.Name == "Horror"),
                         DateCreated = DateTime.Now,
-                        //StoryType = _dbContext.StoryTypes.First(x => x.TypeName == "Novel"),
+                        StoryType = _dbContext.StoryTypes.First(x => x.Name == "Novel"),
                         RhymingPattern = _dbContext.RhymingPatterns.First(x => x.Name == SeedData.RhymingPatternNames.ToArray()[0]),
                         MaskingType = _dbContext.MaskingTypes.First(),
                         AuthorApplicationUser = _userManager.Users.First(),
@@ -350,7 +350,7 @@ namespace NatCat.DAL.Seed
                         Synopsis = "Action packed adventure story",
                         Genre = _dbContext.Genres.First(x => x.Name == "Adventure"),
                         DateCreated = DateTime.Now,
-                        //StoryType = _dbContext.StoryTypes.First(x => x.TypeName == "Novel"),
+                        StoryType = _dbContext.StoryTypes.First(x => x.Name == "Novel"),
                         RhymingPattern = _dbContext.RhymingPatterns.First(x => x.Name == SeedData.RhymingPatternNames.ToArray()[0]),
                         MaskingType = _dbContext.MaskingTypes.First(),
                         AuthorApplicationUser = _userManager.Users.First(),
@@ -382,7 +382,7 @@ namespace NatCat.DAL.Seed
                         Synopsis = "A fantasy style novel",
                         Genre = _dbContext.Genres.First(x => x.Name == "Fantasy"),
                         DateCreated = DateTime.Now,
-                        //StoryType = _dbContext.StoryTypes.First(x => x.TypeName == "Novel"),
+                        StoryType = _dbContext.StoryTypes.First(x => x.Name == "Novel"),
                         RhymingPattern = _dbContext.RhymingPatterns.First(x => x.Name == SeedData.RhymingPatternNames.ToArray()[0]),
                         MaskingType = _dbContext.MaskingTypes.First(),
                         AuthorApplicationUser = _userManager.Users.First(),
