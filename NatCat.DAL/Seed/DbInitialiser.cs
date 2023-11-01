@@ -213,6 +213,8 @@ namespace NatCat.DAL.Seed
 
                         _dbContext.MaskingTypes.Add(maskingType);
                     }
+
+                    _dbContext.SaveChanges();
                 }
             }
             catch (Exception ex)
@@ -318,6 +320,7 @@ namespace NatCat.DAL.Seed
                         DateCreated = DateTime.Now,
                         //StoryType = _dbContext.StoryTypes.First(x => x.TypeName == "Novel"),
                         RhymingPattern = _dbContext.RhymingPatterns.First(x => x.Name == SeedData.RhymingPatternNames.ToArray()[0]),
+                        MaskingType = _dbContext.MaskingTypes.First(),
                         AuthorApplicationUser = _userManager.Users.First(),
                         TotalStoryRounds = 3,
                         MaxUsers = 4,
@@ -349,6 +352,7 @@ namespace NatCat.DAL.Seed
                         DateCreated = DateTime.Now,
                         //StoryType = _dbContext.StoryTypes.First(x => x.TypeName == "Novel"),
                         RhymingPattern = _dbContext.RhymingPatterns.First(x => x.Name == SeedData.RhymingPatternNames.ToArray()[0]),
+                        MaskingType = _dbContext.MaskingTypes.First(),
                         AuthorApplicationUser = _userManager.Users.First(),
                         TotalStoryRounds = 3,
                         MinCharLengthPerStoryPart = 30,
@@ -380,6 +384,7 @@ namespace NatCat.DAL.Seed
                         DateCreated = DateTime.Now,
                         //StoryType = _dbContext.StoryTypes.First(x => x.TypeName == "Novel"),
                         RhymingPattern = _dbContext.RhymingPatterns.First(x => x.Name == SeedData.RhymingPatternNames.ToArray()[0]),
+                        MaskingType = _dbContext.MaskingTypes.First(),
                         AuthorApplicationUser = _userManager.Users.First(),
                         TotalStoryRounds = 3,
                         MinCharLengthPerStoryPart = 30,

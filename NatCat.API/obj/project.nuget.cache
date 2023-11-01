@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ur93ugg3UCrnkppjuO30186TAMC4EpU9zUVGvVJgqa37GGnw7Sb+ywfDfp6zXA31T3ymquSj7f1y0WHoCIeIGQ==",
+  "dgSpecHash": "t0sxQfPXOD2wSiG0ky+ID8oBA5A4yidmClQaJETcBgNJZuz/qVv91qru6NFhK8YMv4XNO2pmSfUsAGPoKQEY4Q==",
   "success": true,
-  "projectFilePath": "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Api/NatCat.API.csproj",
+  "projectFilePath": "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.API/NatCat.API.csproj",
   "expectedPackageFiles": [
     "/Users/adamstevens/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/adamstevens/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

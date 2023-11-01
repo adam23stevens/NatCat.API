@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Api/NatCat.API.csproj": {}
+    "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.API/NatCat.API.csproj": {}
   },
   "projects": {
-    "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Api/NatCat.API.csproj": {
+    "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.API/NatCat.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Api/NatCat.API.csproj",
+        "projectUniqueName": "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.API/NatCat.API.csproj",
         "projectName": "NatCat.API",
-        "projectPath": "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Api/NatCat.API.csproj",
+        "projectPath": "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.API/NatCat.API.csproj",
         "packagesPath": "/Users/adamstevens/.nuget/packages/",
-        "outputPath": "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Api/obj/",
+        "outputPath": "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/adamstevens/.nuget/NuGet/NuGet.Config"
