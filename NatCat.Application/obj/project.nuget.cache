@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fQSgbSPHQYNvygnxAj7XuLslMAmZbTSZwev9c0kTU+uUJnl9ZsX2O4K9/a+GmiiWySBYK47Da6MP2AJX7I++PA==",
+  "dgSpecHash": "h8auWMA5qYUJIVxJN4DWNt0xorFy1OHzc3vdP74kOH+6qFzUzz06i+da4uUbwHu5vuYUjKFibozm99FRkr0qZw==",
   "success": true,
   "projectFilePath": "/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Application/NatCat.Application.csproj",
   "expectedPackageFiles": [

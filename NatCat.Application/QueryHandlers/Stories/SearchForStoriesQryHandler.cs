@@ -44,8 +44,8 @@ namespace NatCat.Application.QueryHandlers.Stories
                            && (req.GenreIds == null || req.GenreIds.ToList().Contains(story.GenreId))
                            && (req.MaxAuthorCount == 0 || story.StoryUsers.Count() <= req.MaxAuthorCount)
                            //&& (req.StoryTypeIds == null || req.StoryTypeIds.ToList().Contains(story.StoryTypeId))
-                           && (story.StoryParts.Count / story.MaxStoryParts) >= minStoryPartPercentage
-                           && (story.StoryParts.Count / story.MaxStoryParts) <= maxStoryPartPercentage,
+                           && (story.StoryParts.Count / story.TotalStoryRounds) >= minStoryPartPercentage
+                           && (story.StoryParts.Count / story.TotalStoryRounds) <= maxStoryPartPercentage,
                 PageNumber = searchForStoriesQry.PageNumber,
                 PageSize = searchForStoriesQry.PageSize
             };

@@ -31,8 +31,6 @@ namespace NatCat.DAL.Entity
         public Guid MaskingTypeId { get; set; }
         public virtual MaskingType? MaskingType { get; set; }
 
-        public int MaxStoryParts => StoryUsers.Count() * TotalStoryRounds;
-
         [ForeignKey(nameof(RhymingPatternId))]
         public Guid RhymingPatternId { get; set; }
         public virtual RhymingPattern? RhymingPattern { get; set; }

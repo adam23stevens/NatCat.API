@@ -42,7 +42,7 @@ namespace NatCat.Application.Mapping
                 .ForMember(m => m.MinCharLength, m => m.MapFrom(x => x.Story.MinCharLengthPerStoryPart))
                 .ForMember(m => m.MaxCharLength, m => m.MapFrom(x => x.Story.MaxCharLengthPerStoryPart))
                 .ForMember(m => m.RequiredKeyWords, m => m.MapFrom(x => x.StoryPartKeyWords.Select(p => p.KeyWord.Word)))
-                .ForMember(m => m.PercentageComplete, m => m.MapFrom(x => (float)x.Order / x.Story.MaxStoryParts * 100));
+                .ForMember(m => m.PercentageComplete, m => m.MapFrom(x => (float)x.Order / x.Story.TotalStoryRounds * 100));
 
             CreateMap<StoryPart, StoryPartDetailDto>();
             CreateMap<StoryPart, StoryPartListDto>();

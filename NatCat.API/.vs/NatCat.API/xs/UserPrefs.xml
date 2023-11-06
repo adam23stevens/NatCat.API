@@ -1,43 +1,43 @@
 ﻿<Properties StartupConfiguration="{1250C6F4-0850-4B70-8CF0-2F839384F3DF}|https">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.NatCat.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Application/QueryHandlers/BookClubs/GetBookClubHandler.cs" line="20" column="1" />
+      <Breakpoint file="/Users/adamstevens/Documents/Dev/NatCat.API/NatCat.Application/CommandHandlers/Stories/AddStoryPartHandler.cs" line="316" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.NatCat.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../NatCat.DAL/Seed/DbInitialiser.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
     <Files>
-      <File FileName="../NatCat.Model/Auth/UserDTO.cs" Line="11" Column="1" IsPinned="True" />
+      <File FileName="../NatCat.Model/Auth/UserDTO.cs" Line="12" Column="1" IsPinned="True" />
       <File FileName="../NatCat.Application/Queries/BookClubs/GetBookClubJoinRequests.cs" />
       <File FileName="../NatCat.Application/Queries/Stories/GetStoryJoinRequests.cs" />
       <File FileName="../NatCat.Application/QueryHandlers/Stories/GetStoryJoinRequestsHandler.cs" />
       <File FileName="../NatCat.Application/QueryHandlers/BookClubs/GetBookClubJoinRequestsHandler.cs" />
       <File FileName="../NatCat.DAL/Repository/Repository.cs" />
       <File FileName="../NatCat.Model/Dto/Story/StoryJoinRequestDetailDto.cs" />
-      <File FileName="Controllers/StoryController.cs" />
+      <File FileName="Controllers/StoryController.cs" Line="71" Column="49" />
       <File FileName="Controllers/BookClubController.cs" />
-      <File FileName="Program.cs" />
+      <File FileName="Program.cs" Line="154" Column="1" />
       <File FileName="../NatCat.Model/Dto/Story/StoryJoinRequestListDto.cs" />
-      <File FileName="../NatCat.DAL/NatCatDbContext.cs" />
       <File FileName="../NatCat.DAL/Configuration/StoryConfiguration.cs" />
       <File FileName="../NatCat.DAL/Configuration/BookClubConfiguration.cs" />
       <File FileName="../NatCat.DAL/Configuration/ReviewConfiguration.cs" />
       <File FileName="../NatCat.DAL/Configuration/StoryPartConfiguration.cs" />
-      <File FileName="../NatCat.Application/Mapping/StoryMap.cs" />
+      <File FileName="../NatCat.Application/Mapping/StoryMap.cs" Line="45" Column="116" />
       <File FileName="../NatCat.Application/Mapping/BookClubMap.cs" />
-      <File FileName="../NatCat.DAL/Entity/Story.cs" />
       <File FileName="../NatCat.DAL/Entity/StoryJoinRequest.cs" />
       <File FileName="../NatCat.Application/QueryHandlers/Stories/ListAllActiveStoryTypesHandler.cs" />
-      <File FileName="../NatCat.Model/Web/Response/Story/LatestStoryPartResponse.cs" />
-      <File FileName="../NatCat.Application/QueryHandlers/Stories/GetLatestStoryPartHandler.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/Stories/GetLatestStoryPartHandler.cs" Line="34" Column="47" />
       <File FileName="../NatCat.DAL/Entity/StoryPart.cs" />
-      <File FileName="../NatCat.Application/CommandHandlers/Stories/AddStoryPartHandler.cs" />
+      <File FileName="../NatCat.Application/CommandHandlers/Stories/AddStoryPartHandler.cs" Line="315" Column="1" />
       <File FileName="../NatCat.DAL/Entity/StoryType.cs" />
       <File FileName="../NatCat.Model/Dto/Story/StoryTypeListDto.cs" />
       <File FileName="../NatCat.DAL/Entity/BaseGuidEntity.cs" />
       <File FileName="../NatCat.Model/Dto/Story/StoryTypeDetailDto.cs" />
       <File FileName="../NatCat.Model/Dto/BaseDto.cs" />
-      <File FileName="../NatCat.Model/Web/Request/Story/AddStoryReq.cs" />
+      <File FileName="../NatCat.Model/Web/Request/Story/AddStoryReq.cs" Line="5" Column="18" />
       <File FileName="Controllers/GenreController.cs" />
       <File FileName="../NatCat.Model/Dto/BookClub/BookClubDetailDto.cs" />
       <File FileName="../NatCat.Application/Queries/BookClubs/GetBookClub.cs" />
@@ -46,8 +46,8 @@
       <File FileName="../NatCat.Application/QueryHandlers/BookClubs/GetUserBookClubsHandler.cs" />
       <File FileName="../NatCat.Application/QueryHandlers/BookClubs/GetBookClubHandler.cs" />
       <File FileName="../NatCat.Application/QueryHandlers/BookClubs/BookClubsPagedHandler.cs" />
-      <File FileName="../NatCat.Application/CommandHandlers/Stories/AddNewStoryHandler.cs" />
-      <File FileName="../NatCat.Application/QueryHandlers/Stories/GetStoryHandler.cs" />
+      <File FileName="../NatCat.Application/CommandHandlers/Stories/AddNewStoryHandler.cs" Line="34" Column="43" />
+      <File FileName="../NatCat.Application/QueryHandlers/Stories/GetStoryHandler.cs" Line="39" Column="50" />
       <File FileName="../NatCat.Application/Queries/Stories/GetStory.cs" />
       <File FileName="../NatCat.DAL/Entity/BookClub.cs" />
       <File FileName="../NatCat.Application/Mapping/GenreMap.cs" />
@@ -61,14 +61,13 @@
       <File FileName="../NatCat.DAL/Entity/Genre.cs" />
       <File FileName="../NatCat.Application/QueryHandlers/Stories/ListRecentlyPublishedStoriesHandler.cs" />
       <File FileName="../NatCat.Application/QueryHandlers/Stories/ListAllPublishedStoriesHandler.cs" />
-      <File FileName="../NatCat.Application/QueryHandlers/Stories/SearchForStoriesQryHandler.cs" />
-      <File FileName="../NatCat.Application/Queries/Stories/SearchForStoriesQry.cs" />
-      <File FileName="../NatCat.Model/Web/Request/Story/SearchForStoriesReq.cs" />
+      <File FileName="../NatCat.Application/QueryHandlers/Stories/SearchForStoriesQryHandler.cs" Line="37" Column="25" />
+      <File FileName="../NatCat.Application/Queries/Stories/SearchForStoriesQry.cs" Line="13" Column="39" />
       <File FileName="../NatCat.Application/QueryHandlers/Stories/ListUserActiveStoriesHandler.cs" />
       <File FileName="../NatCat.DAL/Contracts/ISimpleRepository.cs" />
       <File FileName="../NatCat.DAL/Repository/SimpleRepository.cs" />
-      <File FileName="../NatCat.Application/Commands/Stories/AddStory.cs" />
-      <File FileName="../NatCat.DAL/Seed/DbInitialiser.cs" Line="196" Column="10" />
+      <File FileName="../NatCat.Application/Commands/Stories/AddStory.cs" Line="14" Column="31" />
+      <File FileName="../NatCat.DAL/Seed/DbInitialiser.cs" Line="32" Column="1" />
       <File FileName="../NatCat.Application/Queries/Stories/ListUserActiveStories.cs" />
       <File FileName="../NatCat.Application/Queries/KeyWords/ListKeyWords.cs" />
       <File FileName="../NatCat.Application/CommandHandlers/Stories/PublishStoryHandler.cs" />
@@ -83,9 +82,45 @@
       <File FileName="../NatCat.Application/QueryHandlers/MaskingType/ListMaskingTypesHandler.cs" />
       <File FileName="../NatCat.Application/Mapping/MaskingTypeMap.cs" />
       <File FileName="../NatCat.DAL/Seed/SeedData.cs" />
+      <File FileName="../NatCat.DAL/Entity/Story.cs" Line="33" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="NatCat.API" expanded="True">
+            <Node name="NatCat.API">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+            <Node name="NatCat.Application">
+              <Node name="CommandHandlers" expanded="True">
+                <Node name="Stories" expanded="True" />
+              </Node>
+              <Node name="Commands" expanded="True">
+                <Node name="Stories" expanded="True" />
+              </Node>
+              <Node name="Queries" expanded="True">
+                <Node name="Stories" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="NatCat.DAL">
+              <Node name="Seed" expanded="True" />
+            </Node>
+            <Node name="NatCat.Model" expanded="True">
+              <Node name="Auth" expanded="True" />
+              <Node name="Web" expanded="True">
+                <Node name="Request" expanded="True">
+                  <Node name="Story" expanded="True" />
+                </Node>
+                <Node name="Response" expanded="True">
+                  <Node name="Story" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
 </Properties>

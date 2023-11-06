@@ -44,10 +44,13 @@ namespace NatCat.Application.CommandHandlers.Stories
                 //When creating the next one, it needs to set everything up so it's ready for the next person
                 //to retrieve it. At this point it could send email / notifications to this user. 
                 //var storyPart = await _storyPartRepository.GetEntityAsync(req.StoryPartId);
-                var story = await _storyRepository.GetEntityAsync(request.AddStoryPartReq.StoryId,
-                p => p.StoryParts,
-                p => p.StoryUsers,
-                p => p.Genre);
+
+                // var story = await _storyRepository.GetEntityAsync(request.AddStoryPartReq.StoryId,
+                // p => p.StoryParts,
+                // p => p.StoryUsers,
+                // p => p.Genre);
+                var story = await _storyRepository.GetEntityAsync(request.AddStoryPartReq.StoryId);
+
                 //var storyType = await _storyTypeRepository.GetEntityAsync(story.StoryTypeId);
 
                 var storyRhymingPattern = await _rhymingRepository.GetAsync(story.RhymingPatternId);
@@ -113,7 +116,7 @@ namespace NatCat.Application.CommandHandlers.Stories
                     //    }
                     //}
                     storyPart.Text = request.AddStoryPartReq.Text;
-                    var lastWord = storyPart.LastWord();
+                    var lastWord = storyPart.Text.LastWord();
                     if (!storyPart.RhymingWords.Split(',').Any(x => x.ToUpper() == lastWord.ToUpper()))
                     {
                         exceptionMessages.Add($"This story part does not rhyme with {lastWord}");
@@ -134,12 +137,22 @@ namespace NatCat.Application.CommandHandlers.Stories
                 }
 
                 storyPart.Text = request.AddStoryPartReq.Text;
+                storyPart.DateCreated = DateTime.Now;
+
+                story.CurrentStoryRound = storyPart.Order + 1;
 
                 if (storyPart.IsFinalStoryPart)
                 {
                     story.DateCompleted = DateTime.Now;
                     story.IsBeingWritten = false;
                     story.DatePublished = DateTime.Now;
+                    
+                    foreach (var oldP in story.StoryParts)
+                    {
+                        oldP.RhymingWords = null;
+
+                        await _storyPartRepository.UpdateAsync(oldP.Id, oldP);
+                    }
 
                     await _storyRepository.UpdateAsync(story.Id, story);
                 }
@@ -160,17 +173,30 @@ namespace NatCat.Application.CommandHandlers.Stories
 
                     if (rhymingPatternStr != string.Empty)
                     {
+                        var thisLastWord = storyPart.Text.LastWord();
+                        var allRhymingWords = GetAllRhymingWords(thisLastWord);
+                        if (allRhymingWords.Count() < 3)
+                        {
+                            exceptionMessages.Add($"Not enough words rhyme with {thisLastWord}");
+                        }
+
+
                         while (rhymingPatternStr.Length <= storyPart.Order + 1)
                         {
                             rhymingPatternStr += rhymingPatternStr;
                         }
+
                         var nextPattern = rhymingPatternStr[storyPart.Order + 1];
                         var lastMatchingPatternIndex = storyPart.Order;
-                        while (lastMatchingPatternIndex >= 0 && rhymingPatternStr[lastMatchingPatternIndex] != nextPattern)
+                        var checks = 0;
+
+                        while (checks < 3 && lastMatchingPatternIndex >= 0 && rhymingPatternStr[lastMatchingPatternIndex] != nextPattern)
                         {
                             lastMatchingPatternIndex--;
+                            checks++;
                         }
-                        if (lastMatchingPatternIndex >= 0)
+
+                        if (lastMatchingPatternIndex >= 0 && checks < 3)
                         {
                             var rhymingPart = story.StoryParts.First(x => x.Order == lastMatchingPatternIndex);
                             if (rhymingPart == null)
@@ -179,7 +205,7 @@ namespace NatCat.Application.CommandHandlers.Stories
                             }
                             else
                             {
-                                var lastWord = rhymingPart.LastWord();
+                                var lastWord = rhymingPart?.Text?.LastWord();
                                 nextRhymingRequiredWords = GetAllRhymingWords(lastWord);
                                 if (nextRhymingRequiredWords.Split(',').Count() <= 2)
                                 {
@@ -187,6 +213,13 @@ namespace NatCat.Application.CommandHandlers.Stories
                                 }
                                 wordToRhymeWith = lastWord;
                                 nextRhymingRequired = true;
+                            }
+
+                            foreach (var oldP in story.StoryParts)
+                            {
+                                oldP.RhymingWords = null;
+
+                                await _storyPartRepository.UpdateAsync(oldP.Id, oldP);
                             }
                         }
                     }
@@ -201,8 +234,8 @@ namespace NatCat.Application.CommandHandlers.Stories
                         Story = story,
                         Order = storyPart.Order + 1,
                         ApplicationUser = story.StoryUsers.First(x => x.Order == nextUserOrder).ApplicationUser,
-                        VisibleTextFromPrevious = GetVisibleText(storyPart.Text),
-                        InvisibleTextFromPrevious = GetInvisibleText(storyPart.Text),
+                        VisibleTextFromPrevious = GetVisibleText(story.PreviousTextVisibilityPercentage, storyPart.Text),
+                        InvisibleTextFromPrevious = GetInvisibleText(story.PreviousTextVisibilityPercentage, story.MaskingType.Name, storyPart.Text),
                         DateSubmitted = null,
                         IsDeleted = false,
                         DeadlineTime = null,
@@ -210,7 +243,7 @@ namespace NatCat.Application.CommandHandlers.Stories
                         IsRhymingRequired = nextRhymingRequired,
                         WordToRhymeWith = wordToRhymeWith,
                         Text = "",
-                        IsFinalStoryPart = storyPart.Order >= story.MaxStoryParts - 1
+                        IsFinalStoryPart = storyPart.Order + 1 >= story.TotalStoryRounds - 1
                     };
 
                     var newStoryPartKeyWords = thisPartKeywords.Select(x => new StoryPartKeyWord
@@ -231,29 +264,101 @@ namespace NatCat.Application.CommandHandlers.Stories
                 throw new Exception(ex.Message);
             }
         }
-        private string GetInvisibleText(string text)
+
+        private string GetInvisibleText(int percentage, string maskingType, string text)
         {
             StringBuilder sb = new StringBuilder();
             var wordCnt = text.Split(' ');
-            for (int x = 0; x < wordCnt.Length - 2; x++)
+            var percStart = MathF.Round((float)wordCnt.Length * ((float)percentage / 100), MidpointRounding.AwayFromZero);
+
+            if (maskingType.Trim().ToUpper() == "INVISIBLE MASKING")
             {
-                var letterCnt = wordCnt[x].Length;
-                for (int y = 0; y < letterCnt; y++)
-                {
-                    sb.Append('x');
-                }
-                sb.Append(' ');
+                sb.Append("...");
             }
+            else if (maskingType.Trim().ToUpper() == "X MASKING")
+            {
+                for (int x = 0; x < percStart; x++)
+                {
+                    var letterCnt = wordCnt[x].Length;
+                    for (int y = 0; y < letterCnt; y++)
+                    {
+                        sb.Append('x');
+                    }
+                    sb.Append(' ');
+                }
+            }
+            else if (maskingType.Trim().ToUpper() == "LETTER JUMBLE")
+            {
+                for (int x = 0; x < percStart; x++)
+                {
+                    var letterCnt = wordCnt[x].Length;
+                    var indexStore = new List<int>();
+                    for (int y = 0; y < letterCnt; y++)
+                    {
+                        Random rnd = new Random();
+                        var letterIndex = rnd.Next(0, letterCnt);
+                        do
+                        {
+                            if (!indexStore.Contains(letterIndex))
+                            {
+                                indexStore.Add(letterIndex);
+                            }
+                            else
+                            {
+                                letterIndex = rnd.Next(0, letterCnt);
+                            }
+                        }
+                        while (!indexStore.Contains(letterIndex));
+
+                        sb.Append(wordCnt[x][letterIndex]);
+                    }
+                    sb.Append(' ');
+                }
+            }
+            else if (maskingType.Trim().ToUpper() == "WORD JUMBLE")
+            {
+                
+                    var indexStore = new List<int>();
+                    for (int y = 0; y < wordCnt.Length; y++)
+                    {
+                        Random rnd = new Random();
+                        var wordIndex = rnd.Next(0, (int)percStart);
+
+                        do
+                        {
+                            if (!indexStore.Contains(wordIndex))
+                            {
+                                indexStore.Add(wordIndex);
+                            }
+                            else
+                            {
+                                wordIndex = rnd.Next(0, (int)percStart);
+                            }
+                        }
+                        while (!indexStore.Contains(wordIndex));
+                    }
+                    for(int y = 0; y < indexStore.Count(); y++)
+                    {
+                        var index = indexStore[y];
+                        sb.Append(wordCnt[index]);
+
+                        sb.Append(' ');
+                    }
+                
+            }
+            
 
             var ret = sb.ToString().TrimEnd();
             return ret;
         }
 
-        private string GetVisibleText(string text)
+        private string GetVisibleText(int percentage, string text)
         {
             StringBuilder sb = new StringBuilder();
             var wordCnt = text.Split(' ');
-            for (int x = wordCnt.Length - 2; x < wordCnt.Length; x++)
+            var percStart = MathF.Round((float)wordCnt.Length * ((float)percentage / 100), MidpointRounding.AwayFromZero);
+
+            for (int x = int.Parse(percStart.ToString()); x < wordCnt.Length; x++)
             {
                 sb.Append(wordCnt[x]);
                 sb.Append(" ");
